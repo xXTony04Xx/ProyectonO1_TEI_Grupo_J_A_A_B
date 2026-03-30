@@ -1,3 +1,5 @@
+const { askTutor } = require("../services/aiService");
+
 const sendMessage = async (req, res) => {
   try {
     const { message } = req.body;
@@ -8,14 +10,31 @@ const sendMessage = async (req, res) => {
       });
     }
 
-    return res.status(200).json({
-      reply: `Recibí tu pregunta: "${message}". Más adelante responderé como Tutor IA.`
-    });
+    const reply = await askTutor(message);
+
+    return res.status(200).json({ reply });
   } catch (error) {
-    console.error("Error en chatController:", error);
+    console.error("=== ERROR COMPLETO IA ===");
+    console.error(error);
+
+    if (error.status) {
+      console.error("Status:", error.status);
+    }
+
+    if (error.message) {
+      console.error("Message:", error.message);
+    }
+
+    if (error.response) {
+      console.error("Response:", error.response);
+    }
+
+    if (error.error) {
+      console.error("Error body:", error.error);
+    }
 
     return res.status(500).json({
-      error: "Ocurrió un error interno en el servidor"
+      error: "Ocurrió un error al consultar la IA"
     });
   }
 };
