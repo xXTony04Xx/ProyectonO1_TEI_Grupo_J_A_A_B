@@ -10,7 +10,7 @@ AGUANTEEEE TALLEREEEEEEEEEEEEEEEEE
 
 BTW Aqui es lo que va en el venv. :
 PORT=3001
-GROQ_API_KEY=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
+GROQ_API_KEY= pidansela a tony porque no deja pushearla por ser secreta jajajaja
 GROQ_MODEL=llama-3.1-8b-instant
 
 
