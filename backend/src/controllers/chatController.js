@@ -1,4 +1,4 @@
-const { askTutor } = require("../services/aiService");
+const { getChatResponse: askTutor } = require("../services/aiService");
 
 const sendMessage = async (req, res) => {
   try {
