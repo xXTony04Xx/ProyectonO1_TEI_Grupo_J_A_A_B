@@ -1,8 +1,9 @@
 import json
 import os
+import tempfile
 from pathlib import Path
 from threading import Lock
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, Response
 from flask_cors import CORS
 from openai import OpenAI
 from dotenv import load_dotenv
@@ -109,6 +110,43 @@ def chat():
 
     except Exception as e:
         return jsonify({"error": str(e)}), 500
+
+
+@app.route('/tts', methods=['POST'])
+def tts():
+    data = request.json or {}
+    text = (data.get("text", "") or "").strip()
+
+    if not text:
+        return jsonify({"error": "No text provided"}), 400
+
+    # gpt-4o-mini-tts suele ser una opción económica para TTS.
+    tts_model = os.getenv("OPENAI_TTS_MODEL", "gpt-4o-mini-tts")
+    tts_voice = os.getenv("OPENAI_TTS_VOICE", "onyx")
+
+    temp_path = None
+    try:
+        with tempfile.NamedTemporaryFile(suffix=".mp3", delete=False) as temp_file:
+            temp_path = temp_file.name
+
+        with client.audio.speech.with_streaming_response.create(
+            model=tts_model,
+            voice=tts_voice,
+            input=text
+        ) as tts_response:
+            tts_response.stream_to_file(temp_path)
+
+        with open(temp_path, "rb") as audio_file:
+            audio_bytes = audio_file.read()
+
+        return Response(audio_bytes, mimetype="audio/mpeg")
+
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+    finally:
+        if temp_path and os.path.exists(temp_path):
+            os.remove(temp_path)
 
 if __name__ == '__main__':
     app.run(debug=True, port=5000)

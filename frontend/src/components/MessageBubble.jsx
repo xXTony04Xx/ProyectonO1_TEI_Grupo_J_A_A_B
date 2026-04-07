@@ -1,39 +1,60 @@
 import ReactMarkdown from "react-markdown";
+import { useRef, useState } from "react";
+
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "http://localhost:5000";
 
 function MessageBubble({ text, sender }) {
-  const speak = () => {
-  if (!("speechSynthesis" in window)) return;
+  const [speaking, setSpeaking] = useState(false);
+  const audioRef = useRef(null);
+  const urlRef = useRef(null);
 
-  const voices = window.speechSynthesis.getVoices();
+  const speak = async () => {
+    if (!text?.trim() || speaking) return;
 
-  console.log(
-    voices.map((voice) => ({
-      name: voice.name,
-      lang: voice.lang
-    }))
-  );
+    setSpeaking(true);
 
-  const utterance = new SpeechSynthesisUtterance(text);
+    try {
+      if (audioRef.current) {
+        audioRef.current.pause();
+        audioRef.current = null;
+      }
+      if (urlRef.current) {
+        URL.revokeObjectURL(urlRef.current);
+        urlRef.current = null;
+      }
 
-  const preferredVoice =
-    voices.find((voice) => voice.lang === "es-ES") ||
-    voices.find((voice) => voice.lang === "es-MX") ||
-    voices.find((voice) => voice.lang.startsWith("es")) ||
-    voices.find((voice) => voice.name.toLowerCase().includes("spanish"));
+      const res = await fetch(`${API_BASE_URL}/tts`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ text })
+      });
 
-  if (preferredVoice) {
-    utterance.voice = preferredVoice;
-    utterance.lang = preferredVoice.lang;
-  } else {
-    utterance.lang = "es-ES";
-  }
+      if (!res.ok) {
+        throw new Error(`Error HTTP: ${res.status}`);
+      }
 
-  utterance.rate = 0.95;
-  utterance.pitch = 1;
+      const audioBlob = await res.blob();
+      const audioUrl = URL.createObjectURL(audioBlob);
+      urlRef.current = audioUrl;
+      const audio = new Audio(audioUrl);
+      audioRef.current = audio;
 
-  window.speechSynthesis.cancel();
-  window.speechSynthesis.speak(utterance);
-};
+      audio.onended = () => {
+        if (urlRef.current) {
+          URL.revokeObjectURL(urlRef.current);
+          urlRef.current = null;
+        }
+      };
+
+      await audio.play();
+    } catch (error) {
+      console.error("Error TTS:", error);
+    } finally {
+      setSpeaking(false);
+    }
+  };
 
   return (
     <div className={`message-row ${sender === "user" ? "user-row" : "bot-row"}`}>
@@ -46,8 +67,8 @@ function MessageBubble({ text, sender }) {
           <div className="markdown-content">
             <ReactMarkdown>{text}</ReactMarkdown>
 
-            <button className="speak-button" onClick={speak}>
-              🔊 Escuchar
+            <button className="speak-button" onClick={speak} disabled={speaking}>
+              {speaking ? "Generando audio..." : "🔊 Escuchar"}
             </button>
           </div>
         ) : (
