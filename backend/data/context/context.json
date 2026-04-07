@@ -1,0 +1,236 @@
+[
+  {
+    "archivo": "Arreglos Multidimensionales.pptx",
+    "metadata": { "tipo": "presentación" },
+    "slides": [
+      { "nro": 1, "contenido": "Título: ARREGLOS MULTIDIMENSIONALES [cite: 1, 2]" },
+      { "nro": 2, "contenido": "Definición: Extensión de un arreglo que permite almacenamiento múltiple de filas (tablas) en lugar de una sola dimensión. [cite: 3, 5]" },
+      { "nro": 3, "contenido": "Dimensiones: Lo más común es 2D (filas y columnas) o 3D. Características: Almacenamiento contiguo, acceso por índices [i][j], requiere ciclos dobles para recorrido, tamaño fijo, uso en tableros y juegos. [cite: 4, 6, 7, 8, 9, 10, 11, 12]" },
+      { "nro": 4, "contenido": "Ejemplo: Crear matriz de enteros de 2 filas y 3 columnas, asignar valores e imprimir. [cite: 13, 14, 15, 16]" },
+      { "nro": 5, "contenido": "Ejemplo 2: Modificar el programa anterior para que el usuario ingrese la información desde el teclado. [cite: 17, 18, 19]" },
+      { "nro": 6, "contenido": "Ejercicio: Crear matriz 4x4 de enteros aleatorios (1-100), mostrar original y calcular suma de cada fila y columna. [cite: 20, 21, 22, 23, 24]" }
+    ]
+  },
+  {
+    "archivo": "Arreglos.pptx",
+    "metadata": { "tipo": "presentación" },
+    "slides": [
+      { "nro": 1, "contenido": "Título: ARREGLOS C++ [cite: 25, 26]" },
+      { "nro": 2, "contenido": "Definición: Estructura de datos para almacenar elementos del mismo tipo bajo un mismo nombre y de manera contigua en memoria. [cite: 27, 28, 29]" },
+      { "nro": 3, "contenido": "Índices: Van de 0 a n-1. Facilitan acceso, garantizan orden y se recorren regularmente con ciclos. [cite: 30, 31, 32, 33, 34]" },
+      { "nro": 4, "contenido": "Arreglos Tradicionales: T arr[N]. Tamaño fijo en compilación, eficientes, pero no verifican límites de acceso y manejan buffers pequeños. [cite: 35, 36, 37, 38, 39, 40, 41]" },
+      { "nro": 5, "contenido": "std::array: Almacena en stack, tamaño fijo, permite .size(), inicialización clara, no redimensionable. [cite: 42, 43, 44, 45, 46, 47, 48, 49]" },
+      { "nro": 6, "contenido": "std::vector: Contenedor dinámico (crece/decrece), almacenamiento contiguo, posee métodos (push_back, insert, erase). [cite: 50, 51, 52, 53, 54, 55, 56]" },
+      { "nro": 7, "contenido": "Ejercicio: Solicitar número de estudiantes, pedir calificación (arreglo dinámico), calcular promedio y desviación estándar. [cite: 57, 58, 59, 60, 61]" },
+      { "nro": 8, "contenido": "Cadenas C++: Arreglo de caracteres (char[]) de una sola dimensión para caracteres alfanuméricos. [cite: 62, 63, 64, 65, 66]" },
+      { "nro": 9, "contenido": "Tipos de Cadenas: std::string y char[]. Ejemplo declaración: char Nombre[] = “Este es mi nombre”; [cite: 67, 68, 69, 70, 71, 72]" },
+      { "nro": 10, "contenido": "Funciones de Cadenas: STRLEN (longitud), STRCPY (copia), STRCMP (compara), STRNCMP (compara N caracteres), STRCAT (concatena), STRNCAT (concatena N caracteres), STRCHR (busca primer coincidencia), STRRCHR (busca última coincidencia), STRSTR (busca subcadena), STRTOK (separa por delimitadores). [cite: 79, 85, 92, 102, 112, 119, 126, 135, 145, 156]" },
+      { "nro": 11, "contenido": "Ejercicios: Calcular vocales de la primer palabra ingresada; contar cuántas palabras ingresó el usuario. [cite: 166, 170]" }
+    ]
+  },
+  {
+    "archivo": "Búsqueda.pptx",
+    "metadata": { "tipo": "presentación" },
+    "slides": [
+      { "nro": 1, "contenido": "Título: ALGORITMOS DE BÚSQUEDA [cite: 174, 175]" },
+      { "nro": 2, "contenido": "Búsqueda Secuencial: Recorrido lineal desde el primero al último. Útil en listas pequeñas y no ordenadas. Devuelve 1 si encuentra, -1 si no. [cite: 176, 177, 180, 181, 182, 183, 184, 185]" },
+      { "nro": 3, "contenido": "Búsqueda Binaria: Eficiente, requiere listas ordenadas. Divide espacio de búsqueda a la mitad. Compara valor medio: si es igual finaliza, si no, busca en mitad superior o inferior. [cite: 189, 190, 191, 192, 198, 199, 200, 201, 202, 203]" },
+      { "nro": 4, "contenido": "Ejercicio Directorio: Almacenar nombre y teléfono. Métodos para búsqueda secuencial, ordenamiento y búsqueda binaria; contar recorridos realizados. [cite: 207, 208, 209, 210, 211, 213, 214, 215, 216]" },
+      { "nro": 5, "contenido": "Hashing: Técnica de búsqueda rápida usando tablas hash. Convierte clave en índice. Requisitos función hash: Determinista y Uniforme. [cite: 218, 219, 220, 221, 223, 224, 227, 228, 229]" },
+      { "nro": 6, "contenido": "Tabla Hash: Arreglo de buckets accesible por índice hash. Manejo de colisiones: Encadenamiento o Dirección Abierta. [cite: 231, 232, 233, 241, 242, 243, 244]" },
+      { "nro": 7, "contenido": "unordered_map C++: Contenedor asociativo sin orden, usa tabla hash interna para pares clave->valor. Operaciones: .insert(), miMapa[key], .size(), .erase(), .empty(). [cite: 256, 258, 259, 260, 261, 264, 267, 268, 269, 270, 272, 273, 274, 275, 276]" },
+      { "nro": 8, "contenido": "Ejercicios Hashing: Frecuencia de palabras usando unordered_map hasta ingresar “fin”. Clase PriceMap para precios históricos por producto y tiempo (getPrice devuelve valor exacto o anterior más cercano). [cite: 287, 288, 289, 290, 292, 293, 294, 295, 297, 299, 300, 301, 302]" }
+    ]
+  },
+  {
+    "archivo": "Cadenas.pptx",
+    "metadata": { "tipo": "presentación" },
+    "slides": [
+      { "nro": 1, "contenido": "Cadenas en C++: Repaso de char[] y funciones C-style (strlen, strcpy, etc.). [cite: 304, 306, 321, 322, 327, 334, 344, 354, 361, 368, 377, 387, 398]" },
+      { "nro": 2, "contenido": "std::string: Gestión dinámica de memoria. Es un contenedor de caracteres con métodos integrados. No requiere ‘\\0’ explícito. [cite: 416, 418, 419, 420]" },
+      { "nro": 3, "contenido": "Operaciones std::string: Concatenación (+ o .append()), tamaño (.size() o .length()), acceso (variable[pos] o .at()), comparación (==), subcadenas (.substr(ini, fin)), búsqueda (.find()). [cite: 424, 425, 426, 428, 429, 430, 432, 433, 434, 436, 437, 439, 440, 442, 443]" },
+      { "nro": 4, "contenido": "Ejercicios std::string: Verificar si es palíndromo; validar contraseña segura (8 carac., 1 número, 1 especial); identificar palabra más larga en frase. [cite: 445, 446, 447, 450, 451, 452, 453, 454, 455, 458, 459, 460]" }
+    ]
+  },
+  {
+    "archivo": "Ejercicio.pptx",
+    "metadata": { "tipo": "presentación" },
+    "slides": [
+      { "nro": 1, "contenido": "Fase 1: Clase con métodos para 4 operaciones básicas; solicitar 2 números y validar. [cite: 462, 463, 464, 465, 466]" },
+      { "nro": 2, "contenido": "Fase 2: Clase Calculadora Compleja (hereda de Fase 1). Agrega métodos para raíz cuadrada y potencia. [cite: 467, 468, 469, 470]" },
+      { "nro": 3, "contenido": "Fase 3: Sobrecarga de métodos para aceptar 3 números. Preguntar al usuario si desea operar 2 o 3 valores. [cite: 471, 472, 473, 474]" }
+    ]
+  },
+  {
+    "archivo": "Interfaces.pptx",
+    "metadata": { "tipo": "presentación" },
+    "slides": [
+      { "nro": 1, "contenido": "Interfaz: Contrato que define el 'qué hace' una clase (declara métodos, no los implementa). Obliga a clases derivadas a implementarlos. [cite: 475, 477, 479, 480, 481, 482, 483]" },
+      { "nro": 2, "contenido": "Sintaxis: Función pura virtual (= 0). Ejemplo: virtual double calcularArea() = 0; [cite: 485, 486, 488]" },
+      { "nro": 3, "contenido": "Clases Abstractas Puras: Tienen al menos una función pura virtual. No se pueden instanciar directamente. [cite: 489, 490, 492, 493, 494, 495, 496]" },
+      { "nro": 4, "contenido": "Ventajas: Separación entre definición e implementación, polimorfismo, desacoplamiento, escalabilidad y mantenimiento. [cite: 498, 499, 500, 501, 502, 503]" }
+    ]
+  },
+  {
+    "archivo": "Listas.cpp",
+    "metadata": { "tipo": "código fuente" },
+    "slides": [
+      { "nro": 1, "contenido": "Código fuente C++ que implementa una lista enlazada simple de Estudiantes. Incluye clases Estudiante (nombre, carnet, carrera), Nodo (almacena estudiante y puntero siguiente) y Lista (métodos agregar, mostrar, buscar por carnet y eliminar por carnet). Main con menú interactivo." }
+    ]
+  },
+  {
+    "archivo": "Listas.pptx",
+    "metadata": { "tipo": "presentación" },
+    "slides": [
+      { "nro": 1, "contenido": "Listas: Estructura de datos dinámica (crece/reduce en ejecución). Útiles para datos cambiantes. [cite: 511, 513, 514, 515]" },
+      { "nro": 2, "contenido": "Ventajas: Rapidez inserción/eliminación, tamaño dinámico, uso memoria adaptable, no reubican datos. [cite: 517, 518, 519, 520, 521, 522]" },
+      { "nro": 3, "contenido": "Desventajas: Acceso secuencial, mayor uso memoria, ordenamiento costoso, complejidad implementación. [cite: 524, 525, 526, 527, 528]" },
+      { "nro": 4, "contenido": "C++: std::list (doblemente enlazada, bidireccional) y std::forward_list (simplemente enlazada). [cite: 530, 532, 533, 535, 536, 538, 539]" },
+      { "nro": 5, "contenido": "Operaciones comunes: push_back(), pop_front(), remove(), begin(), clear(). [cite: 541, 542, 543, 544, 545, 546]" }
+    ]
+  },
+  {
+    "archivo": "Abstracción.pptx",
+    "metadata": { "tipo": "presentación" },
+    "slides": [
+      { "nro": 1, "contenido": "Abstracción: Proceso de ocultar detalles internos y mostrar solo información esencial para usar el objeto. [cite: 577, 579, 581, 582]" },
+      { "nro": 2, "contenido": "Ventajas: Reduce complejidad, reutiliza código, encapsula y protege información, facilita mantenimiento. [cite: 584, 585, 586, 587, 588]" },
+      { "nro": 3, "contenido": "Modelado de Clases: Diseñar clases trasladando objetos reales al software. Definir atributos, métodos y control de acceso. [cite: 596, 598, 599, 600, 602, 603, 604, 605, 606, 607]" },
+      { "nro": 4, "contenido": "Constructor: Método especial automático al crear la clase. Mismo nombre que clase, sin tipo de retorno. Inicializa instancias. [cite: 617, 619, 620, 621, 622, 623]" },
+      { "nro": 5, "contenido": "Herencia: Permite que una subclase adquiera atributos/métodos de una superclase. Tipos: Pública, Protegida, Privada. [cite: 632, 634, 635, 637, 641, 645, 646, 647, 648]" }
+    ]
+  },
+  {
+    "archivo": "Arreglos de Objetos.pptx",
+    "metadata": { "tipo": "presentación" },
+    "slides": [
+      { "nro": 1, "contenido": "Arreglo de Objetos: Almacenamiento de múltiples instancias de una clase en posiciones contiguas de memoria. [cite: 666, 667, 668]" },
+      { "nro": 2, "contenido": "Uso: Colecciones de entidades (estudiantes, empleados, productos) para aplicar operaciones conjuntas. [cite: 671, 672, 673, 674]" },
+      { "nro": 3, "contenido": "Características: Homogéneos, acceso por índice, tamaño fijo, acceso a atributos por punto (.). [cite: 676, 677, 678, 680, 682, 683]" },
+      { "nro": 4, "contenido": "Ejercicios: Almacenar 5 estudiantes (nombre, edad); arreglo de 10 libros para consultar por autor. [cite: 686, 687, 693, 694, 695, 696]" }
+    ]
+  },
+  {
+    "archivo": "Polimorfismo.pptx",
+    "metadata": { "tipo": "presentación" },
+    "slides": [
+      { "nro": 1, "contenido": "Título: POLIMORFISMO EN C++" },
+      { "nro": 2, "contenido": "Definición: Capacidad de un objeto de tomar diferentes formas o comportamientos según el contexto. Permite tratar objetos de clases derivadas como objetos de una clase base." },
+      { "nro": 3, "contenido": "Funciones Virtuales: Se utiliza la palabra clave 'virtual' en la clase base para permitir que las clases derivadas sobrescriban el método." },
+      { "nro": 4, "contenido": "Override: Palabra clave que asegura que se está sobrescribiendo correctamente un método de la clase base." },
+      { "nro": 5, "contenido": "Ventajas: Facilita la extensibilidad del código y permite el uso de punteros de clase base para gestionar colecciones de objetos diversos." }
+    ]
+  },
+  {
+    "archivo": "POO.pptx",
+    "metadata": { "tipo": "presentación" },
+    "slides": [
+      { "nro": 1, "contenido": "Título: PROGRAMACIÓN ORIENTADA A OBJETOS (POO)" },
+      { "nro": 2, "contenido": "Conceptos Básicos: Paradigma basado en el uso de 'objetos' que combinan datos (atributos) y funciones (métodos)." },
+      { "nro": 3, "contenido": "Clases vs Objetos: La clase es el molde o plano; el objeto es la instancia real creada a partir de ese molde." },
+      { "nro": 4, "contenido": "Los 4 Pilares: Abstracción (enfocarse en lo esencial), Encapsulamiento (proteger datos internos), Herencia (reutilizar código) y Polimorfismo (múltiples formas)." }
+    ]
+  },
+  {
+    "archivo": "Punteros.pptx",
+    "metadata": { "tipo": "presentación" },
+    "slides": [
+      { "nro": 1, "contenido": "Título: PUNTEROS EN C++" },
+      { "nro": 2, "contenido": "Definición: Una variable que almacena la dirección de memoria de otra variable." },
+      { "nro": 3, "contenido": "Operadores: '&' (operador de dirección, obtiene la ubicación) y '*' (operador de desreferencia, obtiene el contenido de la dirección)." },
+      { "nro": 4, "contenido": "Declaración: tipo *nombrePuntero; Ejemplo: int *ptr = &numero;" },
+      { "nro": 5, "contenido": "Punteros Nulos: Uso de 'nullptr' para indicar que un puntero no apunta a ninguna dirección válida." }
+    ]
+  },
+  {
+    "archivo": "Recursividad.pptx",
+    "metadata": { "tipo": "presentación" },
+    "slides": [
+      { "nro": 1, "contenido": "Título: RECURSIVIDAD" },
+      { "nro": 2, "contenido": "Definición: Técnica de programación donde una función se llama a sí misma para resolver un problema." },
+      { "nro": 3, "contenido": "Componentes Críticos: 1. Caso Base (detiene la recursión) y 2. Caso Recursivo (donde la función se llama de nuevo)." },
+      { "nro": 4, "contenido": "Riesgos: El uso excesivo de memoria en el 'stack' puede causar un Stack Overflow si no hay un caso base adecuado." },
+      { "nro": 5, "contenido": "Ejemplos: Factorial de un número y serie de Fibonacci." }
+    ]
+  },
+  {
+    "archivo": "Sobrecarga.pptx",
+    "metadata": { "tipo": "presentación" },
+    "slides": [
+      { "nro": 1, "contenido": "Título: SOBRECARGA EN C++" },
+      { "nro": 2, "contenido": "Sobrecarga de Funciones: Definir varias funciones con el mismo nombre pero con diferentes tipos o cantidad de parámetros." },
+      { "nro": 3, "contenido": "Sobrecarga de Operadores: Permite redefinir el comportamiento de operadores (como +, -, ==) para que funcionen con objetos de clases personalizadas." },
+      { "nro": 4, "contenido": "Reglas: No se puede cambiar la prioridad de los operadores ni crear operadores nuevos; solo redefinir los existentes." }
+    ]
+  },
+  {
+    "archivo": "Struct.pptx",
+    "metadata": { "tipo": "presentación" },
+    "slides": [
+      { "nro": 1, "contenido": "Título: ESTRUCTURAS (STRUCT)" },
+      { "nro": 2, "contenido": "Definición: Tipo de dato definido por el usuario que agrupa variables de diferentes tipos bajo un solo nombre." },
+      { "nro": 3, "contenido": "Acceso: Se utiliza el operador punto (.) para acceder a los miembros de la estructura." },
+      { "nro": 4, "contenido": "Diferencia con Class: En una 'struct', los miembros son públicos por defecto; en una 'class', son privados por defecto." }
+    ]
+  },
+  {
+    "archivo": "Tipos de datos en C++.pptx",
+    "metadata": { "tipo": "presentación" },
+    "slides": [
+      { "nro": 1, "contenido": "Título: TIPOS DE DATOS EN C++" },
+      { "nro": 2, "contenido": "Datos Primitivos: int (enteros), float (decimales simples), double (decimales doble precisión), char (caracteres), bool (lógicos)." },
+      { "nro": 3, "contenido": "Modificadores: short, long, signed, unsigned (afectan el rango y tamaño en memoria)." },
+      { "nro": 4, "contenido": "Tamanos comunes: int (4 bytes), char (1 byte), double (8 bytes)." }
+    ]
+  },
+  {
+    "archivo": "Listas_Doble.cpp",
+    "metadata": { "tipo": "código fuente" },
+    "slides": [
+      { "nro": 1, "contenido": "Implementación de Lista Doblemente Enlazada. Define estructura de Nodo con punteros '*siguiente' y '*anterior'. Incluye funciones para insertar al inicio/final, eliminar nodos específicos y recorrer la lista en ambas direcciones." }
+    ]
+  },
+  {
+    "archivo": "Modificadores de Acceso.pptx",
+    "metadata": { "tipo": "presentación" },
+    "slides": [
+      { "nro": 1, "contenido": "Título: MODIFICADORES DE ACCESO" },
+      { "nro": 2, "contenido": "Public: Miembros accesibles desde cualquier parte del programa." },
+      { "nro": 3, "contenido": "Private: Miembros accesibles solo desde dentro de la misma clase." },
+      { "nro": 4, "contenido": "Protected: Miembros accesibles desde la misma clase y desde clases que heredan de ella." }
+    ]
+  },
+  {
+    "archivo": "Ordenamiento.pptx",
+    "metadata": { "tipo": "presentación" },
+    "slides": [
+      { "nro": 1, "contenido": "Título: ALGORITMOS DE ORDENAMIENTO" },
+      { "nro": 2, "contenido": "Burbuja (Bubble Sort): Intercambia elementos adyacentes si están en el orden incorrecto; es sencillo pero ineficiente en grandes volúmenes." },
+      { "nro": 3, "contenido": "Selección (Selection Sort): Busca el elemento más pequeño y lo coloca en la posición correcta secuencialmente." },
+      { "nro": 4, "contenido": "Inserción (Insertion Sort): Toma cada elemento y lo inserta en su lugar relativo dentro de la parte ya ordenada." },
+      { "nro": 5, "contenido": "Complejidad: Análisis de tiempo O(n^2) para estos algoritmos básicos." }
+    ]
+  },
+  {
+    "archivo": "Uso de Memoria.pptx",
+    "metadata": { "tipo": "presentación" },
+    "slides": [
+      { "nro": 1, "contenido": "Título: USO DE MEMORIA EN C++" },
+      { "nro": 2, "contenido": "Stack (Pila): Memoria gestionada automáticamente por el compilador; es rápida, de tamaño limitado y almacena variables locales y llamadas a funciones." },
+      { "nro": 3, "contenido": "Heap (Montón): Memoria gestionada por el programador mediante 'new' y 'delete'; es flexible, de mayor tamaño, pero conlleva riesgo de fugas de memoria." },
+      { "nro": 4, "contenido": "Operadores New/Delete: 'new' asigna memoria dinámica en el heap y 'delete' la libera para evitar el agotamiento de recursos." },
+      { "nro": 5, "contenido": "Fugas de Memoria (Memory Leaks): Ocurren cuando se reserva memoria en el heap y se pierde la referencia sin haberla liberado previamente." }
+    ]
+  },
+  {
+    "archivo": "Valores Nulos.pptx",
+    "metadata": { "tipo": "presentación" },
+    "slides": [
+      { "nro": 1, "contenido": "Título: VALORES NULOS Y SEGURIDAD" },
+      { "nro": 2, "contenido": "Definición: Representan la ausencia de un valor o una dirección de memoria que no apunta a ningún objeto válido." },
+      { "nro": 3, "contenido": "NULL vs nullptr: 'NULL' es una macro heredada de C (valor 0), mientras que 'nullptr' es un literal de C++11 que ofrece mayor seguridad de tipos." },
+      { "nro": 4, "contenido": "Riesgos de Desreferencia: Intentar acceder al contenido de un puntero nulo provoca errores críticos como el 'Segmentation Fault'." },
+      { "nro": 5, "contenido": "Buenas Prácticas: Siempre realizar validaciones de seguridad mediante 'if (ptr != nullptr)' antes de operar con punteros." }
+    ]
+  }
+]
