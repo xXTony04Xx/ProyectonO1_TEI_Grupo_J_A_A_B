@@ -1,7 +1,10 @@
 import { useState } from "react";
 import ChatContainer from "./components/ChatContainer";
 import ChatInput from "./components/ChatInput";
-import "./Styles/chat.css";
+import "./styles/chat.css";
+
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "http://localhost:5000";
+
 function App() {
   const [messages, setMessages] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -13,7 +16,7 @@ function App() {
     setLoading(true);
 
     try {
-      const res = await fetch("http://localhost:3001/api/chat", {
+      const res = await fetch(`${API_BASE_URL}/chat`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
@@ -21,10 +24,14 @@ function App() {
         body: JSON.stringify({ message })
       });
 
+      if (!res.ok) {
+        throw new Error(`Error HTTP: ${res.status}`);
+      }
+
       const data = await res.json();
 
       const botMessage = {
-        text: data.reply || "No se recibió respuesta del servidor.",
+        text: data.response || data.error || "No se recibió respuesta del servidor.",
         sender: "bot"
       };
 
