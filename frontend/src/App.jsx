@@ -54,7 +54,7 @@ function App() {
     <div className="app">
       <div className="chat-card">
         <div className="chat-header">
-          <h1>Tutor IA</h1>
+          <h1>AIng. ROBjas</h1>
           <p>Programación Avanzada</p>
         </div>
 

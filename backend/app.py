@@ -148,5 +148,56 @@ def tts():
         if temp_path and os.path.exists(temp_path):
             os.remove(temp_path)
 
+
+@app.route('/stt', methods=['POST'])
+def stt():
+    audio_file = request.files.get("audio")
+
+    if audio_file is None:
+        return jsonify({"error": "No audio file provided"}), 400
+
+    audio_bytes = audio_file.read()
+    if not audio_bytes:
+        return jsonify({"error": "Empty audio file"}), 400
+
+    stt_model = os.getenv("OPENAI_STT_MODEL", "gpt-4o-mini-transcribe")
+    stt_language = os.getenv("OPENAI_STT_LANGUAGE", "es")
+    original_name = (audio_file.filename or "recording.webm").lower()
+
+    if original_name.endswith(".mp3"):
+        suffix = ".mp3"
+    elif original_name.endswith(".mp4") or original_name.endswith(".m4a"):
+        suffix = ".mp4"
+    elif original_name.endswith(".wav"):
+        suffix = ".wav"
+    elif original_name.endswith(".ogg"):
+        suffix = ".ogg"
+    else:
+        suffix = ".webm"
+
+    temp_audio_path = None
+
+    try:
+        with tempfile.NamedTemporaryFile(suffix=suffix, delete=False) as temp_audio_file:
+            temp_audio_file.write(audio_bytes)
+            temp_audio_path = temp_audio_file.name
+
+        with open(temp_audio_path, "rb") as audio_stream:
+            transcription = client.audio.transcriptions.create(
+                model=stt_model,
+                file=audio_stream,
+                language=stt_language
+            )
+
+        text = (getattr(transcription, "text", "") or "").strip()
+        return jsonify({"text": text})
+
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+    finally:
+        if temp_audio_path and os.path.exists(temp_audio_path):
+            os.remove(temp_audio_path)
+
 if __name__ == '__main__':
     app.run(debug=True, port=5000)
