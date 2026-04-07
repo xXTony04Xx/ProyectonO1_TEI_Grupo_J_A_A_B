@@ -90,7 +90,7 @@ def chat():
 
         # Aquí usamos el modelo más barato: gpt-4o-mini
         response = client.chat.completions.create(
-            model="gpt-4o-mini",
+            model="ft:gpt-4o-mini-2024-07-18:personal:tutor-robjas:DRueFPtg",
             messages=[
                 {"role": "system", "content": system_promt},
                 *history_snapshot,
